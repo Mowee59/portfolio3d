@@ -33,10 +33,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`antialiased`}>
-        <main>
-          <Navbar />
-          {children}
-        </main>
+        <Navbar />
+        {children}
       </body>
     </html>
   );

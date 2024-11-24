@@ -1,5 +1,9 @@
 import Hero from "./components/hero/Hero";
 
 export default function Home() {
-  return <Hero />;
+  return (
+    <main className="background-gradient min-h-screen">
+      <Hero />
+    </main>
+  );
 }
