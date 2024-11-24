@@ -21,7 +21,7 @@ const Shapes = () => {
         <ContactShadows
           position={[0, -3.5, 0]}
           opacity={0.65}
-          scale={40}
+          scale={5}
           blur={1}
           far={9}
         />
@@ -44,30 +44,52 @@ const Geometries = () => {
       position: [0, 1, 0],
       r: 0.3,
       geometry: nodes.Curve.geometry,
+      scale: 5.5,
+    },
+    {
+      position: [1, -0.75, 4],
+      r: 0.3,
+      geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16),
+    },
+    {
+      position: [-1.4, 2, -4],
+      r: 0.6,
+      geometry: new THREE.DodecahedronGeometry(1.5),
+    },
+    {
+      position: [-0.8, -0.75, 5],
+      r: 0.5,
+      geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32),
+    },
+    {
+      position: [1.6, 1.6, -4],
+      r: 0.7,
+      geometry: new THREE.OctahedronGeometry(1.5),
     },
   ];
 
   const materials = [
-    // new THREE.MeshNormalMaterial(),
+    new THREE.MeshNormalMaterial(),
     new THREE.MeshStandardMaterial({
-      color: 0xcbd5e1,
-      roughness: 0,
-      metalness: 1,
+      color: 0x2c3e50,
+      roughness: 0.1,
+      metalness: 0.5,
     }),
   ];
 
-  return geometries.map(({ position, r, geometry }) => (
+  return geometries.map(({ position, r, geometry, scale = 1 }) => (
     <Geometry
       key={JSON.stringify(position)}
       r={r}
       position={position.map((p) => p * 2)}
       geometry={geometry}
       materials={materials}
+      scale={scale}
     />
   ));
 };
 
-const Geometry = ({ r, position, geometry, materials }) => {
+const Geometry = ({ r, position, geometry, materials, scale }) => {
   const meshRef = useRef();
   const [visible, setVisible] = useState(true);
 
@@ -127,7 +149,7 @@ const Geometry = ({ r, position, geometry, materials }) => {
 
   return (
     <group position={position} ref={meshRef}>
-      <Float speed={5 * r} rotationIntensity={7 * r} floatIntensity={20 * r}>
+      <Float speed={5 * r} rotationIntensity={6 * r} floatIntensity={5 * r}>
         <mesh
           geometry={geometry}
           material={startingMaterial}
@@ -136,7 +158,7 @@ const Geometry = ({ r, position, geometry, materials }) => {
           onPointerOver={handlePointerOver}
           onPointerOut={handlePointerOut}
           visible={true}
-          scale={5}
+          scale={scale}
         />
       </Float>
     </group>
