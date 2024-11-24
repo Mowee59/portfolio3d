@@ -19,5 +19,10 @@ export const navLinks = [
     name: "Contact",
     href: "#contact",
   },
-  
 ];
+
+export const heroText = {
+  prenom: "Aniss",
+  nom: "Mahfoudi",
+  description: "Concepteur Développeur",
+};

@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         generalsans: ["General Sans", "sans-serif"],
+        urbanist: ["Urbanist", "sans-serif"],
       },
       colors: {
         black: {

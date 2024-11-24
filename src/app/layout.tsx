@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  variable: "--font-urbanist",
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`antialiased`}>
-        <main className="mx-auto max-w-7xl">
+        <main>
           <Navbar />
           {children}
         </main>
