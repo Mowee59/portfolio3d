@@ -19,4 +19,5 @@ export const navLinks = [
     name: "Contact",
     href: "#contact",
   },
+  
 ];

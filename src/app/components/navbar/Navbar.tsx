@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import Logo from "@/assets/logo.svg";
 import Image from "next/image";
+import Logo from "@/assets/logo.svg";
 import { navLinks } from "@/app/constants";
 
 const NavItems = () => {
