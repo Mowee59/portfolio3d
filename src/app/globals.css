@@ -30,7 +30,7 @@
   }
 
   .nav-li {
-    @apply max-sm:hover:bg-black-500 font-generalsans py-2 text-neutral-400 hover:text-white max-sm:w-full max-sm:rounded-md max-sm:px-5;
+    @apply py-2 font-generalsans text-neutral-400 hover:text-white max-sm:w-full max-sm:rounded-md max-sm:px-5 max-sm:hover:bg-black-500;
   }
 
   .nav-li_a {
@@ -38,7 +38,7 @@
   }
 
   .nav-sidebar {
-    @apply bg-black-200 absolute left-0 right-0 z-20 mx-auto block overflow-hidden backdrop-blur-sm transition-all duration-300 ease-in-out sm:hidden;
+    @apply absolute left-0 right-0 z-20 mx-auto block overflow-hidden bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out sm:hidden;
   }
 
   .text-gray_gradient {
@@ -47,7 +47,7 @@
 
   /* button component */
   .btn {
-    @apply bg-black-300 mx-auto flex cursor-pointer items-center justify-center gap-4 rounded-md p-3 text-white transition-all active:scale-95;
+    @apply mx-auto flex cursor-pointer items-center justify-center gap-4 rounded-md bg-black-300 p-3 text-white transition-all active:scale-95;
   }
 
   .btn-ping {
@@ -60,16 +60,16 @@
 
   /* hero section */
   .hero_tag {
-    @apply font-generalsans text-center text-3xl font-black !leading-normal sm:text-4xl md:text-5xl xl:text-6xl;
+    @apply text-center font-generalsans text-3xl font-black !leading-normal sm:text-4xl md:text-5xl xl:text-6xl;
   }
 
   /* about section */
   .grid-container {
-    @apply border-black-300 bg-black-200 flex h-full w-full flex-col gap-5 rounded-lg border p-4 sm:p-7;
+    @apply flex h-full w-full flex-col gap-5 rounded-lg border border-black-300 bg-black-200 p-4 sm:p-7;
   }
 
   .grid-headtext {
-    @apply font-generalsans mb-2 text-xl font-semibold text-white;
+    @apply mb-2 font-generalsans text-xl font-semibold text-white;
   }
 
   .grid-subtext {
@@ -95,7 +95,7 @@
   }
 
   .client-review {
-    @apply bg-black-300 col-span-1 rounded-lg bg-opacity-50 p-5 md:p-10;
+    @apply col-span-1 rounded-lg bg-black-300 bg-opacity-50 p-5 md:p-10;
   }
 
   .client-content {
@@ -108,23 +108,23 @@
   }
 
   .work-canvas {
-    @apply bg-black-200 border-black-300 col-span-1 rounded-lg border;
+    @apply col-span-1 rounded-lg border border-black-300 bg-black-200;
   }
 
   .work-content {
-    @apply bg-black-200 border-black-300 col-span-2 rounded-lg border;
+    @apply col-span-2 rounded-lg border border-black-300 bg-black-200;
   }
 
   .work-content_container {
-    @apply hover:bg-black-300 grid cursor-pointer grid-cols-[auto_1fr] items-start gap-5 rounded-lg px-2.5 transition-all duration-500 ease-in-out sm:px-5;
+    @apply grid cursor-pointer grid-cols-[auto_1fr] items-start gap-5 rounded-lg px-2.5 transition-all duration-500 ease-in-out hover:bg-black-300 sm:px-5;
   }
 
   .work-content_logo {
-    @apply bg-black-600 h-16 w-16 rounded-3xl p-2;
+    @apply h-16 w-16 rounded-3xl bg-black-600 p-2;
   }
 
   .work-content_bar {
-    @apply bg-black-300 group-hover:bg-black-500 mt-4 h-full w-0.5 flex-1 group-last:hidden;
+    @apply mt-4 h-full w-0.5 flex-1 bg-black-300 group-last:hidden group-hover:bg-black-500;
   }
 
   /* contact section */
@@ -133,15 +133,15 @@
   }
 
   .field-label {
-    @apply text-white-600 text-lg;
+    @apply text-lg text-white-600;
   }
 
   .field-input {
-    @apply bg-black-300 placeholder:text-white-500 text-white-800 shadow-black-200 min-h-14 w-full rounded-lg px-5 py-2 text-lg shadow-2xl focus:outline-none;
+    @apply min-h-14 w-full rounded-lg bg-black-300 px-5 py-2 text-lg text-white-800 shadow-2xl shadow-black-200 placeholder:text-white-500 focus:outline-none;
   }
 
   .field-btn {
-    @apply bg-black-500 shadow-black-200 flex min-h-12 items-center justify-center gap-3 rounded-lg px-5 py-2 text-lg text-white shadow-2xl;
+    @apply flex min-h-12 items-center justify-center gap-3 rounded-lg bg-black-500 px-5 py-2 text-lg text-white shadow-2xl shadow-black-200;
   }
 
   .field-btn_arrow {
@@ -150,7 +150,7 @@
 
   /*  footer */
   .social-icon {
-    @apply bg-black-300 border-black-200 flex h-12 w-12 items-center justify-center rounded-full border;
+    @apply flex h-12 w-12 items-center justify-center rounded-full border border-black-200 bg-black-300;
   }
 }
 

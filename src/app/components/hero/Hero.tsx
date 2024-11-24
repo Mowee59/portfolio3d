@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Bounded from "../hoc/Bounded";
+import Shapes from "./Shapes";
 
 const Hero = () => {
   const component = useRef(null);
@@ -74,6 +75,7 @@ const Hero = () => {
   return (
     <Bounded ref={component}>
       <div className="grid min-h-[70vh] grid-cols-1 items-center md:grid-cols-2">
+        <Shapes />
         <div className="col-start-1 md:row-start-1">
           <h1
             className="mb-8 text-[clamp(6rem,12vmin,20rem)] font-extrabold leading-none tracking-tighter"
