@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { easing } from "maath";
+import { gsap } from "gsap";
 
 const HeroCamera = ({
   children,
@@ -26,18 +26,17 @@ const HeroCamera = ({
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  useFrame((state, delta) => {
+  //TODO: Use gsap hook
+  useFrame(() => {
     if (!groupRef.current) return;
 
-    easing.damp3(state.camera.position, [0, 0, 20], 0.25, delta);
-
     if (!isMobile) {
-      easing.dampE(
-        groupRef.current.rotation,
-        [mousePosition.y / 16, -mousePosition.x / 40, 0],
-        0.05,
-        delta,
-      );
+      gsap.to(groupRef.current.rotation, {
+        x: mousePosition.y / 20,
+        y: -mousePosition.x / 15,
+        duration: 3,
+        ease: "power4.out",
+      });
     }
   });
 

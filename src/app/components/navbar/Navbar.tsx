@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 bg-black/20">
-      <div className="mx-auto max-w-7xl">
+      <div className="container mx-auto">
         <div className="c-space mx-auto flex items-center justify-between py-5">
           <Link
             href="/"
