@@ -6,7 +6,7 @@ import { ContactShadows, Float, Environment, useGLTF } from "@react-three/drei";
 import { Suspense, useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { useControls } from "leva";
-
+import HeroCamera from "./HeroCamera";
 const Shapes = () => {
   return (
     <Canvas
@@ -17,7 +17,9 @@ const Shapes = () => {
       camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
     >
       <Suspense fallback={null}>
-        <Geometries />
+        <HeroCamera>
+          <Geometries />
+        </HeroCamera>
         <ContactShadows
           position={[0, -3.5, 0]}
           opacity={0.65}
@@ -71,7 +73,7 @@ const Geometries = () => {
   const materials = [
     new THREE.MeshNormalMaterial(),
     new THREE.MeshStandardMaterial({
-      color: 0x2c3e50,
+      color: 0x2980b9,
       roughness: 0.1,
       metalness: 0.5,
     }),
@@ -121,31 +123,31 @@ const Geometry = ({ r, position, geometry, materials, scale }) => {
     mesh.material = getRandomMaterial();
   }
 
-  const handlePointerOver = () => {
-    document.body.style.cursor = "pointer";
-    if (meshRef.current) {
-      gsap.to(meshRef.current.scale, {
-        x: 1.2,
-        y: 1.2,
-        z: 1.2,
-        duration: 0.5,
-        ease: "bounce.out",
-      });
-    }
-  };
+  // const handlePointerOver = () => {
+  //   document.body.style.cursor = "pointer";
+  //   if (meshRef.current) {
+  //     gsap.to(meshRef.current.scale, {
+  //       x: 1.2,
+  //       y: 1.2,
+  //       z: 1.2,
+  //       duration: 0.5,
+  //       ease: "bounce.out",
+  //     });
+  //   }
+  // };
 
-  const handlePointerOut = () => {
-    document.body.style.cursor = "default";
-    if (meshRef.current) {
-      gsap.to(meshRef.current.scale, {
-        x: 1,
-        y: 1,
-        z: 1,
-        duration: 0.5,
-        ease: "bounce.out",
-      });
-    }
-  };
+  // const handlePointerOut = () => {
+  //   document.body.style.cursor = "default";
+  //   if (meshRef.current) {
+  //     gsap.to(meshRef.current.scale, {
+  //       x: 1,
+  //       y: 1,
+  //       z: 1,
+  //       duration: 0.5,
+  //       ease: "bounce.out",
+  //     });
+  //   }
+  // };
 
   return (
     <group position={position} ref={meshRef}>
@@ -155,8 +157,8 @@ const Geometry = ({ r, position, geometry, materials, scale }) => {
           material={startingMaterial}
           rotation={[Math.PI / 2, 0, Math.PI]}
           onClick={handleClick}
-          onPointerOver={handlePointerOver}
-          onPointerOut={handlePointerOut}
+          // onPointerOver={handlePointerOver}
+          // onPointerOut={handlePointerOut}
           visible={true}
           scale={scale}
         />
