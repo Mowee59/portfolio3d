@@ -4,17 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #010103;
-  --foreground: #ededed;
-}
-
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-} */
+}
 
 @layer utilities {
   .c-space {
@@ -212,4 +207,10 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: "General Sans", sans-serif;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }
