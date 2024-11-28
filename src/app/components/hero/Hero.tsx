@@ -73,7 +73,11 @@ const Hero = () => {
   };
 
   return (
-    <Bounded ref={component} className="flex h-screen items-center">
+    //TODO: fix the height of the hero in mobile resolution
+    <Bounded
+      ref={component}
+      className="flex max-h-fit min-h-screen items-center"
+    >
       <div className="grid min-h-[70vh] grid-cols-1 items-center md:grid-cols-2">
         <Shapes />
         <div className="col-start-1 md:row-start-1">

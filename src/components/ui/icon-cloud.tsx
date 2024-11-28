@@ -14,12 +14,12 @@ export const cloudProps: Omit<ICloud, "children"> = {
   containerProps: {
     className: "h-fit w-full  sm:h-[276px] ",
   },
-  canvasProps: {
-    style: {
-      maxHeight: "100%",
-      margin: "0 auto",
-    },
-  },
+  // canvasProps: {
+  //   style: {
+  //     maxHeight: "100%",
+  //     margin: "0 auto",
+  //   },
+  // },
   options: {
     reverse: true,
     depth: 1,
