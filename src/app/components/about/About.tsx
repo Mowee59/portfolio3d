@@ -3,7 +3,8 @@ import Bounded from "../hoc/Bounded";
 import { IconCloudDemo } from "./IconCloudDemo";
 import { BorderBeam } from "@/components/ui/border-beam";
 import dynamic from "next/dynamic";
-
+import Image from "next/image";
+import grid2 from "@/assets/grid2.png";
 const MyGlobe = dynamic(() => import("./MyGlobe"), { ssr: false });
 
 const About = () => {
@@ -29,8 +30,14 @@ const About = () => {
         </div>
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
-            <IconCloudDemo />
-
+            <div className="relative mx-auto">
+              <Image
+                src={grid2}
+                alt="Tech stack"
+                // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="h-fit w-full object-contain sm:w-[276px]"
+              />
+            </div>
             <div>
               <p className="grid-headtext">Tech Stack</p>
               <p className="grid-subtext">
@@ -80,8 +87,10 @@ const About = () => {
             />
             <div className="space-y-2">
               <p className="grid-subtext text-center">Contactez moi</p>
-              <div className="copy-container" >
-                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">contact@aniss.dev</p>
+              <div className="copy-container">
+                <p className="text-gray_gradient font-medium text-white md:text-xl lg:text-2xl">
+                  contact@aniss.dev
+                </p>
               </div>
             </div>
           </div>
