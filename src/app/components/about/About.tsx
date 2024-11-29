@@ -1,10 +1,11 @@
 import React from "react";
 import Bounded from "../hoc/Bounded";
-import { IconCloudDemo } from "./IconCloudDemo";
-import { BorderBeam } from "@/components/ui/border-beam";
+
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import grid2 from "@/assets/grid2.png";
+import ContactMe from "./ContactMe";
+import Button from "../button/Button";
 const MyGlobe = dynamic(() => import("./MyGlobe"), { ssr: false });
 
 const About = () => {
@@ -48,15 +49,21 @@ const About = () => {
         </div>
         <div className="col-span-1 xl:row-span-4">
           <div className="grid-container">
-            <div className="flex h-fit w-full flex-col items-center justify-center rounded-3xl sm:h-[326px]">
+            <div className="mx-auto">
               <MyGlobe />
-              <div>
-                <p className="grid-headtext">Je m'adapte géographiquement</p>
-                <p className="grid-subtext">
-                  Je suis basé à Lille, mais je suis ouvert à toutes les
-                  opportunités de déplacement.
-                </p>
-              </div>
+            </div>
+            <div>
+              <p className="grid-headtext">Je m'adapte géographiquement</p>
+              <p className="grid-subtext">
+                Je suis basé à Lille, mais je suis ouvert à toutes les
+                opportunités de déplacement.
+              </p>
+
+              <Button
+                label="Me contacter"
+                withCircle
+                containerClass="w-full mt-10"
+              />
             </div>
           </div>
         </div>
@@ -80,19 +87,7 @@ const About = () => {
         </div>
         <div className="xl:col-span-1 xl:row-span-2">
           <div className="grid-container">
-            <img
-              src="/assets/grid4.png"
-              alt="Me contacter"
-              className="h-fit w-full object-cover sm:h-[276px] sm:object-top md:h-[126px]"
-            />
-            <div className="space-y-2">
-              <p className="grid-subtext text-center">Contactez moi</p>
-              <div className="copy-container">
-                <p className="text-gray_gradient font-medium text-white md:text-xl lg:text-2xl">
-                  contact@aniss.dev
-                </p>
-              </div>
-            </div>
+            <ContactMe />
           </div>
         </div>
       </div>
