@@ -11,14 +11,12 @@ const MyGlobe = dynamic(() => import("./MyGlobe"), { ssr: false });
 const About = () => {
   return (
     <Bounded className="my-20">
-      <h1 className="mb-12 text-4xl font-semibold leading-[43.20px] text-white">
-        A propos de moi
-      </h1>
+      <p className="head-text mb-12">A propos de moi</p>
       <div className="grid h-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-6">
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
             <img
-              src="/assets/me.png"
+              src="/assets/grid1.png"
               alt="about"
               className="h-fit w-full object-contain sm:h-[276px]"
             />

@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
-import { navLinks } from "@/app/constants";
+import { navLinks } from "@/constants";
 
 const NavItems = () => {
   return (

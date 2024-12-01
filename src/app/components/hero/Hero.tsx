@@ -1,6 +1,6 @@
 "use client";
 
-import { heroText } from "@/app/constants";
+import { heroText } from "@/constants";
 import React from "react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
