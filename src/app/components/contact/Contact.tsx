@@ -38,6 +38,7 @@ const Contact = () => {
       alert(
         "Merci pour votre message, je vous répondrai dans les plus brefs délais.",
       );
+      setForm({ name: "", email: "", message: "" });
     } catch (err) {
       setLoading(false);
       alert("Une erreur est survenue, veuillez réessayer.");
@@ -74,7 +75,6 @@ const Contact = () => {
                 required
                 className="field-input"
                 placeholder="ex., John Doe"
-                
               />
             </label>
 

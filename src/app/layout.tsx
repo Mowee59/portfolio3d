@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
-
+import Footer from "./components/footer/Footer";
 const urbanist = Urbanist({
   subsets: ["latin"],
   variable: "--font-urbanist",
@@ -35,6 +35,7 @@ export default function RootLayout({
       <body className={`antialiased`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
