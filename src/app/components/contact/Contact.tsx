@@ -74,6 +74,7 @@ const Contact = () => {
                 required
                 className="field-input"
                 placeholder="ex., John Doe"
+                
               />
             </label>
 

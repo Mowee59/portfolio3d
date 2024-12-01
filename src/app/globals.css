@@ -132,7 +132,7 @@
   }
 
   .field-input {
-    @apply min-h-14 w-full rounded-lg bg-black-300 px-5 py-2 text-lg text-white-800 shadow-2xl shadow-black-200 placeholder:text-white-500 focus:outline-none;
+    @apply min-h-14 w-full rounded-lg bg-black-300 px-5 py-2 text-lg text-white-800 shadow-2xl shadow-black-200 placeholder:text-white-500 hover:cursor-text focus:outline-none;
   }
 
   .field-btn {
