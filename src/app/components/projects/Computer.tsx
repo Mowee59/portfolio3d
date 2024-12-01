@@ -7,14 +7,37 @@ Title: Personal Computer
 */
 
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
-import { Mesh } from "three";
+import { useGLTF, useVideoTexture } from "@react-three/drei";
+import { Group, Mesh } from "three";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+interface ComputerProps {
+  screenTexture: string;
+}
 
-const Computer: React.FC = (props) => {
+const Computer: React.FC<ComputerProps> = (props) => {
+  const groupRef = useRef<Group>(null);
+
+  const screenTexture = useVideoTexture(
+    props.screenTexture
+      ? props.screenTexture
+      : "/assets/textures/videos/project1.mp4",
+  );
+
+  useGSAP(() => {
+    if (groupRef.current) {
+      gsap.from(groupRef.current.rotation, {
+        y: Math.PI / 2,
+        duration: 1,
+        ease: "power3.out",
+      });
+    }
+  }, [screenTexture]);
+
   const { nodes, materials } = useGLTF("/assets/computer.gltf");
   return (
-    <group {...props} dispose={null}>
-      <group scale={0.01}>
+    <group {...props} ref={groupRef} dispose={null}>
+      <group>
         <group position={[0, 14.965, 0]} scale={97.604}>
           <mesh
             castShadow
@@ -31,7 +54,9 @@ const Computer: React.FC = (props) => {
             geometry={(nodes.screen_laptopScreen_0 as Mesh).geometry}
             material={materials.laptopScreen}
             position={[0, -0.168, 0.099]}
-          />
+          >
+            <meshBasicMaterial map={screenTexture} />
+          </mesh>
         </group>
       </group>
     </group>

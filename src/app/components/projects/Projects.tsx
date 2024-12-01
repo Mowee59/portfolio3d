@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Canvas } from "@react-three/fiber";
 import CanvasLoader from "../CanvasLoader";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Bounds, Environment, OrbitControls } from "@react-three/drei";
 import { Center } from "@react-three/drei";
 import Computer from "./Computer";
 import { useControls } from "leva";
@@ -170,16 +170,23 @@ const Projects = () => {
             <Center>
               <Suspense fallback={<CanvasLoader />}>
                 <group
-                  scale={12}
+                  scale={10}
                   position={[groupPositionX, groupPositionY, groupPositionZ]}
                   rotation={[groupRotationX, groupRotationY, groupRotationZ]}
                 >
-                  <Computer />
+                  <Bounds clip fit observe margin={1.5}>
+                    <Computer screenTexture={currentProject.texture} />
+                  </Bounds>
                 </group>
               </Suspense>
             </Center>
             <Environment preset="city" />
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+            <OrbitControls
+              maxPolarAngle={Math.PI / 2}
+              enableZoom={true}
+              enablePan={true}
+              makeDefault
+            />
           </Canvas>
         </div>
       </div>
