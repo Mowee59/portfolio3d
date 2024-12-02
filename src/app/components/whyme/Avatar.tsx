@@ -1,11 +1,51 @@
-import React from "react";
-import { useGLTF } from "@react-three/drei";
-import { SkinnedMesh } from "three";
+import React, { useRef, useEffect } from "react";
+import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
+import { Group, SkinnedMesh } from "three";
+import { GroupProps } from "@react-three/fiber";
 
-const Avatar: React.FC<JSX.IntrinsicElements['group']> = ({ scale = 1, ...props }) => {
-  const { nodes, materials } = useGLTF("/models/avatar.glb") as any;
+type AvatarProps = GroupProps & {
+  animationName?: string; // Add animationName as an optional prop
+};
+
+const Avatar: React.FC<AvatarProps> = ({
+  animationName = "idle",
+  ...props
+}) => {
+  const group = useRef<Group>(null);
+  const { nodes, materials } = useGLTF("/models/avatar/avatar.glb");
+
+  const { animations: idleAnimation } = useFBX("models/avatar/idle.fbx");
+  const { animations: saluteAnimation } = useFBX("models/avatar/salute.fbx");
+  const { animations: clappingAnimation } = useFBX(
+    "models/avatar/clapping.fbx",
+  );
+  const { animations: victoryAnimation } = useFBX("models/avatar/victory.fbx");
+
+  idleAnimation[0].name = "idle";
+  saluteAnimation[0].name = "salute";
+  clappingAnimation[0].name = "clapping";
+  victoryAnimation[0].name = "victory";
+
+  const { actions } = useAnimations(
+    [
+      idleAnimation[0],
+      saluteAnimation[0],
+      clappingAnimation[0],
+      victoryAnimation[0],
+    ],
+    group,
+  );
+
+  useEffect(() => {
+    actions[animationName]?.reset().fadeIn(0.5).play();
+
+    return () => {
+      actions[animationName]?.fadeOut(0.5);
+    };
+  }, [animationName]);
+
   return (
-    <group {...props} dispose={null} scale={scale}>
+    <group {...props} dispose={null} ref={group}>
       <primitive object={nodes.Hips} />
       <skinnedMesh
         name="EyeLeft"
@@ -84,6 +124,6 @@ const Avatar: React.FC<JSX.IntrinsicElements['group']> = ({ scale = 1, ...props 
   );
 };
 
-useGLTF.preload("/models/avatar.glb");
+useGLTF.preload("/models/avatar/avatar.glb");
 
 export default Avatar;

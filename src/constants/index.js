@@ -220,42 +220,52 @@ export const myProjects = [
 export const workExperiences = [
   {
     id: 1,
-    name: "Framer",
+    name: "Une Passion pour l'Innovation",
     pos: "Lead Web Developer",
     duration: "2022 - Present",
     title:
-      "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: "/assets/framer.svg",
+      "Le développement est bien plus qu’un métier pour moi : c’est un domaine dans lequel je m’investis pleinement. J’apprécie particulièrement la recherche de solutions innovantes et l’amélioration continue de mes compétences. <br/><strong>Ce que cela apportera :</strong>  Un collaborateur engagé et toujours à jour avec les évolutions technologiques.",
+    icon: "/assets/passion.png",
     animation: "victory",
   },
   {
     id: 2,
-    name: "Figma",
+    name: "Une Motivation Constante",
     pos: "Web Developer",
     duration: "2020 - 2022",
     title:
-      "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: "/assets/figma.svg",
+      "Je suis déterminé à atteindre les objectifs fixés et à surmonter les défis. Mon approche méthodique et persévérante me permet de m’adapter à des contextes variés et de livrer des résultats fiables. <br/><strong>Ce que cela apporte :</strong> Un partenaire de confiance, capable de contribuer efficacement à la réussite de vos projets.",
+    icon: "/assets/motivation.png",
     animation: "clapping",
   },
   {
     id: 3,
-    name: "Notion",
+    name: "Maîtrise des Concepts de Programmation",
     pos: "Junior Web Developer",
     duration: "2019 - 2020",
     title:
-      "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: "/assets/notion.svg",
+      "J’ai une solide compréhension des fondamentaux de la programmation et je m’adapte rapidement aux nouveaux outils, langages et frameworks. <br/><strong>Ce que cela apporte :</strong> Une capacité à s’intégrer rapidement dans vos processus techniques et à apporter des solutions adaptées.",
+    icon: "/assets/programming.png",
     animation: "salute",
   },
   {
     id: 4,
-    name: "Notion",
-    pos: "Junior Web Developer",
+    name: "Polyvalence Technique et Fonctionnelle",
+    pos: "Polyvalence Technique et Fonctionnelle",
     duration: "2019 - 2020",
     title:
-      "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: "/assets/notion.svg",
+      "Mes compétences couvrent une large gamme de domaines, allant de la conception d’interfaces utilisateur à l’optimisation de backends. Cette diversité me permet de contribuer à toutes les étapes d’un projet. <br/><strong>Ce que cela apporte :</strong> Une flexibilité qui répond à différents besoins, réduisant les dépendances externes.",
+    icon: "/assets/swiss-army-knife.png",
+    animation: "salute",
+  },
+  {
+    id: 5,
+    name: "Proactivité et Implication",
+    pos: "Polyvalence Technique et Fonctionnelle",
+    duration: "2019 - 2020",
+    title:
+      "Je prends l’initiative de résoudre les problèmes et d’anticiper les besoins. Mon approche est axée sur la collaboration et l’efficacité. <br/><strong>Ce que cela apporte :</strong> Une ressource autonome, impliquée, et orientée vers des résultats concrets.",
+    icon: "/assets/actionable.png",
     animation: "salute",
   },
 ];
