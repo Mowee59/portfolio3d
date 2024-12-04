@@ -63,6 +63,6 @@ const Computer: React.FC<ComputerProps> = (props) => {
   );
 };
 
-// useGLTF.preload("/assets/computer.gltf");
+useGLTF.preload("/assets/computer.gltf");
 
 export default Computer;

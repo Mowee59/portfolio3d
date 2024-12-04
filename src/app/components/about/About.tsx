@@ -23,36 +23,38 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   // Reference to the container element for the grid
   const containerRef = useRef(null);
-
   // Use GSAP for animations on grid items
   useGSAP(() => {
     // Select all elements with the class "grid-container"
     const gridItems = gsap.utils.toArray(".grid-container");
 
     // Apply animation to each grid item
-    gridItems.forEach((item, index) => {
-      gsap.fromTo(
-        item as HTMLElement,
-        {
-          opacity: 0,
-          y: 100,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: item as HTMLElement,
-            start: "top bottom-=100",
-            end: "bottom center",
-            toggleActions: "play none none reverse",
+    gridItems.forEach(
+      (item, index) => {
+        gsap.fromTo(
+          item as HTMLElement,
+          {
+            opacity: 0,
+            y: 100,
           },
-          delay: index * 0.1, // Stagger the animations
-        },
-      );
-    });
-  }, []);
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item as HTMLElement,
+              start: "top bottom",
+              end: "bottom center",
+              toggleActions: "play none none reverse",
+            },
+            delay: index * 0.3, // Stagger the animations
+          },
+        );
+      },
+      { scope: containerRef },
+    );
+  });
 
   return (
     <Bounded className="my-20">
