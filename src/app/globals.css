@@ -170,9 +170,9 @@
 .background-gradient {
   background: radial-gradient(
     circle at top right,
-    hsla(222, 80%, 60%, 0.5) 0%,
-    hsla(222, 0%, 0%, 0) 50%,
-    hsla(222, 0%, 0%, 0) 100%
+    #101b2be8 1%,
+    var(--background) 50%,
+    var(--background) 100%
   );
 }
 

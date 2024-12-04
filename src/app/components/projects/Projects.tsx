@@ -11,8 +11,6 @@ import CanvasLoader from "../CanvasLoader";
 import { Bounds, Environment, OrbitControls } from "@react-three/drei";
 import { Center } from "@react-three/drei";
 import Computer from "./Computer";
-import { useControls } from "leva";
-
 gsap.registerPlugin(ScrollTrigger);
 
 const projectCount = myProjects.length;
@@ -35,7 +33,7 @@ const Projects = () => {
     const context = gsap.context(() => {
       const projectItems = gsap.utils.toArray(".project-container");
 
-      projectItems.forEach((item , index: number) => {
+      projectItems.forEach((item, index: number) => {
         gsap.fromTo(
           item as HTMLElement,
           {
@@ -61,58 +59,6 @@ const Projects = () => {
 
     return () => context.revert();
   }, [selectedProjectIndex]);
-
-  const {
-    groupPositionX,
-    groupPositionY,
-    groupPositionZ,
-    groupRotationX,
-    groupRotationY,
-    groupRotationZ,
-  } = useControls({
-    groupPositionX: {
-      value: 0,
-      step: 0.1,
-      label: "Position X",
-      min: -10,
-      max: 10,
-    },
-    groupPositionY: {
-      value: 0,
-      step: 0.1,
-      label: "Position Y",
-      min: -10,
-      max: 10,
-    },
-    groupPositionZ: {
-      value: 0,
-      step: 0.1,
-      label: "Position Z",
-      min: -10,
-      max: 10,
-    },
-    groupRotationX: {
-      value: 0,
-      step: 0.1,
-      label: "Rotation X",
-      min: -10,
-      max: 10,
-    },
-    groupRotationY: {
-      value: 0,
-      step: 0.1,
-      label: "Rotation Y",
-      min: -10,
-      max: 10,
-    },
-    groupRotationZ: {
-      value: 0,
-      step: 0.1,
-      label: "Rotation Z",
-      min: -10,
-      max: 10,
-    },
-  });
 
   const currentProject = myProjects[selectedProjectIndex];
 
@@ -168,7 +114,16 @@ const Projects = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <p>Check Live Site</p>
+              <p>Voire en live</p>
+              <img src="/assets/arrow-up.png" alt="arrow" className="h-3 w-3" />
+            </a>
+            <a
+              className="flex cursor-pointer items-center gap-2 text-white-600"
+              href={currentProject.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <p>Voir sur GitHub</p>
               <img src="/assets/arrow-up.png" alt="arrow" className="h-3 w-3" />
             </a>
           </div>
@@ -198,11 +153,7 @@ const Projects = () => {
           <Canvas>
             <Center>
               <Suspense fallback={<CanvasLoader />}>
-                <group
-                  scale={10}
-                  position={[groupPositionX, groupPositionY, groupPositionZ]}
-                  rotation={[groupRotationX, groupRotationY, groupRotationZ]}
-                >
+                <group scale={10} position={[0, 0, 0]} rotation={[0, 0, 0]}>
                   <Bounds clip fit observe margin={1.5}>
                     <Computer screenTexture={currentProject.texture} />
                   </Bounds>

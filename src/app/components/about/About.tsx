@@ -1,25 +1,32 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Bounded from "../hoc/Bounded";
 
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import grid2 from "@/assets/grid2.webp";
 import ContactMe from "./ContactMe";
 import Button from "../button/Button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Globe from "./MyGlobe";
+import Grid1 from "./Grid1";
+import Grid2 from "./Grid2";
+import Grid3 from "./Grid3";
 
+// Register the ScrollTrigger plugin with GSAP
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * About component that displays information about the user.
+ * It includes multiple grid sections with animations and a globe visualization.
+ */
 const About = () => {
+  // Reference to the container element for the grid
   const containerRef = useRef(null);
 
+  // Use GSAP for animations on grid items
   useGSAP(() => {
-    // Select all grid-container elements
+    // Select all elements with the class "grid-container"
     const gridItems = gsap.utils.toArray(".grid-container");
 
     // Apply animation to each grid item
@@ -54,45 +61,19 @@ const About = () => {
         ref={containerRef}
         className="grid h-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-6"
       >
+        {/* Grid section 1 */}
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
-            <img
-              src="/assets/grid1.webp"
-              alt="about"
-              className="h-fit w-full object-contain sm:h-[276px]"
-            />
-            <div>
-              <p className="grid-headtext">Bonjour, je m'apelle Aniss</p>
-              <p className="grid-subtext">
-                Je suis un développeur passionné par la conception et le
-                développement d&apos;applications. Mon expertise réside dans
-                l&apos;utilisation de la technologie pour transformer des
-                concepts novateurs en produits tangibles et performants.
-              </p>
-            </div>
+            <Grid1 />
           </div>
         </div>
+        {/* Grid section 2 */}
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
-            <div className="relative mx-auto">
-              <Image
-                src={grid2}
-                alt="Tech stack"
-                // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="h-fit w-full object-contain sm:w-[276px]"
-              />
-            </div>
-            <div>
-              <p className="grid-headtext">Stack Technique</p>
-              <p className="grid-subtext">
-                Ma stack technique est variée et couvre plusieurs domaines clés
-                du développement, allant de la conception à la mise en œuvre.
-                Cette polyvalence me permet de m&apos;adapter à divers projets
-                et défis technologiques.
-              </p>
-            </div>
+            <Grid2 />
           </div>
         </div>
+        {/* Grid  Globe and contact button */}
         <div className="col-span-1 xl:row-span-4">
           <div className="grid-container">
             <div className="mx-auto">
@@ -113,29 +94,13 @@ const About = () => {
             </div>
           </div>
         </div>
+        {/* Grid section 3 */}
         <div className="xl:col-span-2 xl:row-span-3">
           <div className="grid-container">
-            {/* TODO: Use next Image  */}
-            <img
-              src="/assets/grid3.png"
-              alt="Ma passion"
-              className="h-fit w-full object-contain sm:h-[266px]"
-            />
-            <div>
-              <p className="grid-headtext">Ma passion pour le développement</p>
-              <p className="grid-subtext">
-                Le développement est bien plus qu&apos;un métier pour moi,
-                c&apos;est une véritable passion. J&apos;aime transformer des
-                idées en applications fonctionnelles et innovantes. Chaque
-                projet est une opportunité d&apos;apprendre et de repousser mes
-                limites. Mon engagement envers la conception et le développement
-                me pousse à constamment explorer de nouvelles tendances et à
-                perfectionner mes compétences pour créer des solutions
-                fonctionnelles et performantes.
-              </p>
-            </div>
+            <Grid3 />
           </div>
         </div>
+        {/* Grid  with ContactMe component */}
         <div className="xl:col-span-1 xl:row-span-2">
           <div className="grid-container">
             <ContactMe />

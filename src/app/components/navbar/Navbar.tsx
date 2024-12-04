@@ -7,6 +7,7 @@ import Logo from "@/assets/logo.svg";
 import { navLinks } from "@/constants";
 
 const NavItems = () => {
+  
   return (
     <ul className="nav-ul">
       {navLinks.map(({ id, href, name }) => (

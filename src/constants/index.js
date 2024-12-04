@@ -39,10 +39,10 @@ export const heroText = {
 
 export const myProjects = [
   {
-    title: "Podcastr - AI Podcast Platform",
-    desc: "Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.",
+    title: "Mon blog",
+    desc: "Ce projet est un blog moderne développé avec Next.js pour le front-end et Strapi pour le back-end, mettant en œuvre une architecture performante et flexible. Hébergé sur un VPS, l'ensemble de la stack est entièrement conteneurisé avec Docker, ce qui garantit une isolation des services et une gestion simplifiée du déploiement. L'architecture inclut NGINX comme reverse proxy, une base de données PostgreSQL, ainsi qu'un monitoring avancé via Prometheus et Grafana.",
     subdesc:
-      "Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.",
+      "Le blog intègre le rendu statique avec revalidation à la demande (ISR) pour garantir des performances optimales et un contenu toujours à jour. Grâce à une pipeline CI/CD automatisée, le déploiement est rapide et fiable. Le design épuré, l’optimisation SEO, et la gestion du contenu structuré assurent une expérience utilisateur fluide et agréable.",
     href: "https://www.youtube.com/watch?v=zfAb95tJvZQ",
     texture: "/textures/videos/project1.mp4",
     logo: "/assets/project-logo1.png",
