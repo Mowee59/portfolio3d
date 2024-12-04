@@ -5,6 +5,7 @@ type BoundedProps = {
   as?: React.ElementType;
   className?: string;
   children: React.ReactNode;
+  id?: string;
 };
 
 /**
@@ -21,12 +22,13 @@ type BoundedProps = {
  */
 const Bounded = React.forwardRef<React.ElementType, BoundedProps>(
   function Bounded(
-    { as: Component = "section", className, children, ...restProps },
+    { as: Component = "section", className, children, id, ...restProps },
     ref,
   ) {
     return (
       <Component
         ref={ref}
+        id={id}
         className={clsx("px-4 py-10 md:px-6 md:py-14 lg:py-16", className)}
         {...restProps}
       >

@@ -2,11 +2,12 @@
 
 import { heroText } from "@/constants";
 import React from "react";
-import {  useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Bounded from "../hoc/Bounded";
 import Shapes from "./Shapes";
+import Scene from "./Scene";
 
 const Hero = () => {
   const component = useRef(null);
@@ -77,6 +78,7 @@ const Hero = () => {
     <Bounded
       ref={component}
       className="flex max-h-fit min-h-screen items-center"
+      id="#home"
     >
       <div className="grid min-h-[70vh] grid-cols-1 items-center md:grid-cols-2">
         <Shapes />

@@ -40,7 +40,7 @@ const ContactMe = () => {
         <div className="copy-container" onClick={handleCopy}>
           {/* //TODO: Use next image */}
           <img
-            src={hasCopied ? "assets/tick.svg" : "/assets/copy.svg"}
+            src={hasCopied ? "assets/icons/tick.svg" : "assets/icons/copy.svg"}
             alt="copy"
           />
           <p className="text-gray_gradient font-medium text-white md:text-xl lg:text-2xl">

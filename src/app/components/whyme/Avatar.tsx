@@ -128,6 +128,6 @@ const Avatar: React.FC<AvatarProps> = ({
   );
 };
 
-// useGLTF.preload("/models/avatar/avatar.glb");
+useGLTF.preload("/models/avatar/avatar.glb");
 
 export default Avatar;

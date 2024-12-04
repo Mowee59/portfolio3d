@@ -63,7 +63,7 @@ const Projects = () => {
   const currentProject = myProjects[selectedProjectIndex];
 
   return (
-    <Bounded>
+    <Bounded id="projects">
       <p className="head-text">Ma sélection de projets</p>
 
       <div
@@ -133,7 +133,7 @@ const Projects = () => {
               className="arrow-btn"
               onClick={() => handleNavigation("previous")}
             >
-              <img src="/assets/left-arrow.png" alt="left arrow" />
+              <img src="/assets/icons/left-arrow.png" alt="left arrow" />
             </button>
 
             <button
@@ -141,7 +141,7 @@ const Projects = () => {
               onClick={() => handleNavigation("next")}
             >
               <img
-                src="/assets/right-arrow.png"
+                src="/assets/icons/right-arrow.png"
                 alt="right arrow"
                 className="h-4 w-4"
               />

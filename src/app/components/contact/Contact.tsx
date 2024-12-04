@@ -47,7 +47,7 @@ const Contact = () => {
   };
 
   return (
-    <Bounded>
+    <Bounded id="contact">
       <div className="relative flex min-h-screen flex-col items-center justify-center">
         <img
           src="/assets/terminal.png"

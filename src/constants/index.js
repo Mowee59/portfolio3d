@@ -44,7 +44,7 @@ export const myProjects = [
     subdesc:
       "Le blog intègre le rendu statique avec revalidation à la demande (ISR) pour garantir des performances optimales et un contenu toujours à jour. Grâce à une pipeline CI/CD automatisée, le déploiement est rapide et fiable. Le design épuré, l’optimisation SEO, et la gestion du contenu structuré assurent une expérience utilisateur fluide et agréable.",
     href: "https://www.youtube.com/watch?v=zfAb95tJvZQ",
-    texture: "/textures/videos/project1.mp4",
+    texture: "/textures/videos/bbb.mp4",
     logo: "/assets/project-logo1.png",
     logoStyle: {
       backgroundColor: "#2A1816",
@@ -56,22 +56,22 @@ export const myProjects = [
       {
         id: 1,
         name: "React.js",
-        path: "/assets/react.svg",
+        path: "/assets/icons/react.svg",
       },
       {
         id: 2,
         name: "TailwindCSS",
-        path: "assets/tailwindcss.png",
+        path: "/assets/icons/tailwindcss.png",
       },
       {
         id: 3,
         name: "TypeScript",
-        path: "/assets/typescript.png",
+        path: "/assets/icons/typescript.png",
       },
       {
         id: 4,
         name: "Framer Motion",
-        path: "/assets/framer.png",
+        path: "/assets/icons/framer.png",
       },
     ],
   },

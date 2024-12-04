@@ -3,7 +3,7 @@
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Float, Environment, useGLTF } from "@react-three/drei";
-import { Suspense, useRef,  useEffect } from "react";
+import { Suspense, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import HeroCamera from "./HeroCamera";
 const Shapes = () => {
@@ -33,7 +33,7 @@ const Shapes = () => {
 };
 
 const Geometries = () => {
-  const { nodes } = useGLTF("../../assets/logo3d.glb");
+  const { nodes } = useGLTF("/models/logo/logo3d.glb");
 
   // const { radius, detail } = useControls({
   //   radius: { value: 3, min: 1, max: 10, step: 0.1 },
@@ -92,7 +92,6 @@ const Geometries = () => {
 
 const Geometry = ({ r, position, geometry, materials, scale }) => {
   const meshRef = useRef();
-
 
   const startingMaterial = getRandomMaterial();
 

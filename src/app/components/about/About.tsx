@@ -48,7 +48,7 @@ const About = () => {
               end: "bottom center",
               toggleActions: "play none none reverse",
             },
-            delay: index * 0.3, // Stagger the animations
+            delay: index * 0.1, // Stagger the animations
           },
         );
       },
@@ -57,7 +57,7 @@ const About = () => {
   });
 
   return (
-    <Bounded className="my-20">
+    <Bounded className="my-20" id="about">
       <p className="head-text mb-12">Á propos de moi</p>
       <div
         ref={containerRef}

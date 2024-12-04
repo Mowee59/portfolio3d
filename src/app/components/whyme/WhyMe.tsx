@@ -3,13 +3,13 @@ import React, { Suspense, useState } from "react";
 import Bounded from "../hoc/Bounded";
 import { Canvas } from "@react-three/fiber";
 import { workExperiences } from "@/constants";
-import {  OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import Avatar from "./Avatar";
 const WhyMe = () => {
-  const [animationName, setAnimationName] = useState("talking");
+  const [animationName, setAnimationName] = useState("idle");
 
   return (
-    <Bounded>
+    <Bounded id="whyme">
       <div className="w-full text-white-600">
         <h3 className="head-text">Pourquoi moi ?</h3>
 
