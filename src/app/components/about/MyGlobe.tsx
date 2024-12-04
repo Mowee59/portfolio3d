@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { GlobeMethods } from "react-globe.gl";
 import { useRef } from "react";
 import Globe from "react-globe.gl";

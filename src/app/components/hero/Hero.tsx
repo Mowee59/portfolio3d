@@ -2,7 +2,7 @@
 
 import { heroText } from "@/constants";
 import React from "react";
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Bounded from "../hoc/Bounded";

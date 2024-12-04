@@ -1,11 +1,8 @@
 "use client";
 
-import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-import { ContactShadows, Float, Environment, useGLTF } from "@react-three/drei";
-import { Suspense, useRef, useState, useEffect } from "react";
-import { gsap } from "gsap";
-import { useControls } from "leva";
+import { ContactShadows, Environment } from "@react-three/drei";
+import { Suspense } from "react";
 
 const Scene = () => {
   return (

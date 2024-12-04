@@ -42,6 +42,7 @@ const Contact = () => {
     } catch (err) {
       setLoading(false);
       alert("Une erreur est survenue, veuillez réessayer.");
+      console.error(err);
     }
   };
 
@@ -56,9 +57,9 @@ const Contact = () => {
         <div className="contact-container">
           <h3 className="head-text">Échangeons</h3>
           <p className="mt-3 text-lg text-white-600">
-            Si vous désirez en savoir plus sur moi et discuter d'une éventuelle
-            collaboration, n'hésitez pas à me contacter, je vous répondrai dans
-            les plus brefs délais.
+            Si vous désirez en savoir plus sur moi et discuter d&apos;une
+            éventuelle collaboration, n&apos;hésitez pas à me contacter, je vous
+            répondrai dans les plus brefs délais.
           </p>
           <form
             ref={formRef}

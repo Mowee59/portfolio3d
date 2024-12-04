@@ -20,7 +20,10 @@ type BoundedProps = {
  * @returns {JSX.Element} The rendered component with consistent padding and maximum width.
  */
 const Bounded = React.forwardRef<React.ElementType, BoundedProps>(
-  ({ as: Component = "section", className, children, ...restProps }, ref) => {
+  function Bounded(
+    { as: Component = "section", className, children, ...restProps },
+    ref,
+  ) {
     return (
       <Component
         ref={ref}

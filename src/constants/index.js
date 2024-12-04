@@ -1,23 +1,33 @@
 export const navLinks = [
   {
     id: 1,
-    name: "Home",
+    name: "Accueil",
     href: "#home",
   },
   {
     id: 2,
-    name: "About",
+    name: "À propos",
     href: "#about",
   },
   {
     id: 3,
-    name: "Work",
-    href: "#work",
+    name: "Projets",
+    href: "#projects",
   },
   {
     id: 4,
+    name: "Pourquoi moi ?",
+    href: "#whyme",
+  },
+  {
+    id: 5,
     name: "Contact",
     href: "#contact",
+  },
+  {
+    id: 6,
+    name: "Blog",
+    href: "#blog",
   },
 ];
 
@@ -256,7 +266,7 @@ export const workExperiences = [
     title:
       "Mes compétences couvrent une large gamme de domaines, allant de la conception d’interfaces utilisateur à l’optimisation de backends. Cette diversité me permet de contribuer à toutes les étapes d’un projet. <br/><strong>Ce que cela apporte :</strong> Une flexibilité qui répond à différents besoins, réduisant les dépendances externes.",
     icon: "/assets/swiss-army-knife.png",
-    animation: "salute",
+    animation: "talking",
   },
   {
     id: 5,

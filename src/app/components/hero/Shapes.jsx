@@ -3,9 +3,8 @@
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Float, Environment, useGLTF } from "@react-three/drei";
-import { Suspense, useRef, useState, useEffect } from "react";
+import { Suspense, useRef,  useEffect } from "react";
 import { gsap } from "gsap";
-import { useControls } from "leva";
 import HeroCamera from "./HeroCamera";
 const Shapes = () => {
   return (
@@ -93,7 +92,7 @@ const Geometries = () => {
 
 const Geometry = ({ r, position, geometry, materials, scale }) => {
   const meshRef = useRef();
-  const [visible, setVisible] = useState(true);
+
 
   const startingMaterial = getRandomMaterial();
 

@@ -3,11 +3,10 @@ import React, { Suspense, useState } from "react";
 import Bounded from "../hoc/Bounded";
 import { Canvas } from "@react-three/fiber";
 import { workExperiences } from "@/constants";
-import { Center, OrbitControls, Environment } from "@react-three/drei";
-import CanvasLoader from "../CanvasLoader";
+import {  OrbitControls, Environment } from "@react-three/drei";
 import Avatar from "./Avatar";
 const WhyMe = () => {
-  const [animationName, setAnimationName] = useState("idle");
+  const [animationName, setAnimationName] = useState("talking");
 
   return (
     <Bounded>

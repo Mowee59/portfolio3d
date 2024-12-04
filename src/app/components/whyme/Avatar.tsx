@@ -20,7 +20,6 @@ const Avatar: React.FC<AvatarProps> = ({
     "models/avatar/clapping.fbx",
   );
   const { animations: victoryAnimation } = useFBX("models/avatar/victory.fbx");
-
   idleAnimation[0].name = "idle";
   saluteAnimation[0].name = "salute";
   clappingAnimation[0].name = "clapping";
@@ -42,7 +41,7 @@ const Avatar: React.FC<AvatarProps> = ({
     return () => {
       actions[animationName]?.fadeOut(0.5);
     };
-  }, [animationName]);
+  }, [animationName, actions]);
 
   return (
     <group {...props} dispose={null} ref={group}>
@@ -101,6 +100,11 @@ const Avatar: React.FC<AvatarProps> = ({
         skeleton={(nodes.Wolf3D_Hair as SkinnedMesh).skeleton}
       />
       <skinnedMesh
+        geometry={(nodes.Wolf3D_Glasses as SkinnedMesh).geometry}
+        material={materials.Wolf3D_Glasses}
+        skeleton={(nodes.Wolf3D_Glasses as SkinnedMesh).skeleton}
+      />
+      <skinnedMesh
         geometry={(nodes.Wolf3D_Outfit_Top as SkinnedMesh).geometry}
         material={materials.Wolf3D_Outfit_Top}
         skeleton={(nodes.Wolf3D_Outfit_Top as SkinnedMesh).skeleton}
@@ -124,6 +128,6 @@ const Avatar: React.FC<AvatarProps> = ({
   );
 };
 
-useGLTF.preload("/models/avatar/avatar.glb");
+// useGLTF.preload("/models/avatar/avatar.glb");
 
 export default Avatar;

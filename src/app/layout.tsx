@@ -1,24 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Urbanist } from "next/font/google";
+
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  variable: "--font-urbanist",
-});
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { ClientLoader } from "./components/loader/CLientLoader";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ClientLoader>
+          <Navbar />
+          {children}
+          <Footer />
+        </ClientLoader>
       </body>
     </html>
   );

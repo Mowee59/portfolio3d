@@ -1,11 +1,11 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { useRef, useEffect, Suspense } from "react";
 import Bounded from "../hoc/Bounded";
 import { myProjects } from "@/constants";
 import { useState } from "react";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
 import CanvasLoader from "../CanvasLoader";
 import { Bounds, Environment, OrbitControls } from "@react-three/drei";
@@ -13,10 +13,13 @@ import { Center } from "@react-three/drei";
 import Computer from "./Computer";
 import { useControls } from "leva";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const projectCount = myProjects.length;
 
 const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+  const containerRef = useRef(null);
 
   const handleNavigation = (direction: string) => {
     setSelectedProjectIndex((prevIndex) => {
@@ -27,6 +30,37 @@ const Projects = () => {
       }
     });
   };
+
+  useEffect(() => {
+    const context = gsap.context(() => {
+      const projectItems = gsap.utils.toArray(".project-container");
+
+      projectItems.forEach((item , index: number) => {
+        gsap.fromTo(
+          item as HTMLElement,
+          {
+            opacity: 0,
+            y: 50,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item as HTMLElement,
+              start: "top bottom-=100",
+              end: "bottom center",
+              toggleActions: "play none none reverse",
+            },
+            delay: index * 0.3, // Stagger the animations
+          },
+        );
+      });
+    }, containerRef);
+
+    return () => context.revert();
+  }, [selectedProjectIndex]);
 
   const {
     groupPositionX,
@@ -80,22 +114,17 @@ const Projects = () => {
     },
   });
 
-  useGSAP(() => {
-    gsap.fromTo(
-      `.animatedText`,
-      { opacity: 0 },
-      { opacity: 1, duration: 1, stagger: 0.2, ease: "power2.inOut" },
-    );
-  }, [selectedProjectIndex]);
-
   const currentProject = myProjects[selectedProjectIndex];
 
   return (
     <Bounded>
       <p className="head-text">Ma sélection de projets</p>
 
-      <div className="mt-12 grid w-full grid-cols-1 gap-5 lg:grid-cols-2">
-        <div className="relative flex flex-col gap-5 px-5 py-10 shadow-2xl shadow-black-200 sm:p-10">
+      <div
+        ref={containerRef}
+        className="mt-12 grid w-full grid-cols-1 gap-5 lg:grid-cols-2"
+      >
+        <div className="project-container relative flex flex-col gap-5 px-5 py-10 shadow-2xl shadow-black-200 sm:p-10">
           <div className="absolute right-0 top-0">
             <img
               src={currentProject.spotlight}
@@ -165,7 +194,7 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="h-96 rounded-lg border border-black-300 bg-black-200 md:h-full">
+        <div className="project-container h-96 rounded-lg border border-black-300 bg-black-200 md:h-full">
           <Canvas>
             <Center>
               <Suspense fallback={<CanvasLoader />}>
