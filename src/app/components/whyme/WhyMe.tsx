@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { workExperiences } from "@/constants";
 import { OrbitControls, Environment } from "@react-three/drei";
 import Avatar from "./Avatar";
+
 const WhyMe = () => {
   const [animationName, setAnimationName] = useState("idle");
 

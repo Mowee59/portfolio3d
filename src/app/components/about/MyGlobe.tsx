@@ -3,7 +3,6 @@
 import { GlobeMethods } from "react-globe.gl";
 import { useRef } from "react";
 import Globe from "react-globe.gl";
-
 /**
  * MyGlobe component renders an interactive 3D globe using the react-globe.gl library.
  * It initializes the globe with a specific point of view and displays a label for Lille.

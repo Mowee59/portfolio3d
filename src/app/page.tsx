@@ -1,17 +1,48 @@
+"use client";
+
 import Hero from "./components/hero/Hero";
-import About from "./components/about/About";
-import Projects from "./components/projects/Projects";
-import Contact from "./components/contact/Contact";
-import WhyMe from "./components/whyme/WhyMe";
+
+import { withLazyLoad } from "./components/hoc/WithLazyLoad";
+import React from "react";
+import LoadingFallback from "./components/hoc/LoadingFallback";
+const LazyAbout = withLazyLoad(
+  React.lazy(() => import("./components/about/About")),
+  {
+    fallback: <LoadingFallback id="about" />,
+    threshold: 0.1,
+  },
+);
+
+const LazyProjects = withLazyLoad(
+  React.lazy(() => import("./components/projects/Projects")),
+  {
+    fallback: <LoadingFallback id="projects" />,
+    threshold: 0.1,
+  },
+);
+const LazyWhyMe = withLazyLoad(
+  React.lazy(() => import("./components/whyme/WhyMe")),
+  {
+    fallback: <LoadingFallback id="whyme" />,
+    threshold: 0.1,
+  },
+);
+const LazyContact = withLazyLoad(
+  React.lazy(() => import("./components/contact/Contact")),
+  {
+    fallback: <LoadingFallback id="contact" />,
+    threshold: 0.1,
+  },
+);
 
 export default function Home() {
   return (
-    <main className="background-gradient min-h-screen">
+    <main>
       <Hero />
-      <About />
-      <Projects />
-      <WhyMe />
-      <Contact />
+      <LazyAbout />
+      <LazyProjects />
+      <LazyWhyMe />
+      <LazyContact />
     </main>
   );
 }

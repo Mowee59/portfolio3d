@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, {  useRef, useState } from "react";
 import Bounded from "../hoc/Bounded";
 import emailjs from "@emailjs/browser";
 const Contact = () => {
@@ -55,7 +55,7 @@ const Contact = () => {
           className="absolute inset-0 hidden min-h-screen w-full sm:block"
         />
         <div className="contact-container">
-          <h3 className="head-text">Échangeons</h3>
+          <h3 className="head-text">Contactez-moi</h3>
           <p className="mt-3 text-lg text-white-600">
             Si vous désirez en savoir plus sur moi et discuter d&apos;une
             éventuelle collaboration, n&apos;hésitez pas à me contacter, je vous

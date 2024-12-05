@@ -7,7 +7,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Bounded from "../hoc/Bounded";
 import Shapes from "./Shapes";
-import Scene from "./Scene";
 
 const Hero = () => {
   const component = useRef(null);

@@ -23,9 +23,11 @@ const Grid2 = () => {
         <p className="grid-headtext">Stack Technique</p>
         {/* Subtext providing more details about the technical stack's versatility */}
         <p className="grid-subtext">
-          Ma stack technique est variée et couvre plusieurs domaines clés du du
-          dént, allant de la conception à la mise en œuvre. Cette Cette alence
-          me permet de m&apos;adapter à divers projets et dé technolo giques.
+          Ma stack technique est variée et couvre plusieurs domaines clés,
+          allant de la conception à la mise en œuvre. Cette polyvalence me
+          permet de m&apos;adapter à divers projets et défis techniques.
+          L&apos;apprentissage de nouveaux languages ou frameworks n&apos;est
+          pas un frein pour moi.
         </p>
       </div>
     </>

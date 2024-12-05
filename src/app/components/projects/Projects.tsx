@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect, Suspense } from "react";
+import React, { useRef, Suspense } from "react";
 import Bounded from "../hoc/Bounded";
 import { myProjects } from "@/constants";
 import { useState } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
 import CanvasLoader from "../CanvasLoader";
@@ -15,10 +16,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projectCount = myProjects.length;
 
+/**
+ * Projects component displays a list of projects with animations and navigation.
+ * It uses GSAP for animations and @react-three/fiber for 3D rendering.
+ */
 const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const containerRef = useRef(null);
 
+  /**
+   * Handles navigation between projects.
+   * @param {string} direction - The direction to navigate ("previous" or "next").
+   */
   const handleNavigation = (direction: string) => {
     setSelectedProjectIndex((prevIndex) => {
       if (direction === "previous") {
@@ -29,35 +38,41 @@ const Projects = () => {
     });
   };
 
-  useEffect(() => {
-    const context = gsap.context(() => {
-      const projectItems = gsap.utils.toArray(".project-container");
+  // GSAP animation for project items on scroll
+  useGSAP(() => {
+    const projectItems = gsap.utils.toArray(".project-container");
 
-      projectItems.forEach((item, index: number) => {
-        gsap.fromTo(
-          item as HTMLElement,
-          {
-            opacity: 0,
-            y: 50,
+    projectItems.forEach((item, index: number) => {
+      gsap.fromTo(
+        item as HTMLElement,
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item as HTMLElement,
+            start: "top bottom-=100",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
           },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: item as HTMLElement,
-              start: "top bottom-=100",
-              end: "bottom center",
-              toggleActions: "play none none reverse",
-            },
-            delay: index * 0.3, // Stagger the animations
-          },
-        );
-      });
-    }, containerRef);
+          delay: index * 0.3, // Stagger the animations
+        },
+      );
+    });
+  }, []);
 
-    return () => context.revert();
+  // GSAP animation for text when selected project changes
+  useGSAP(() => {
+    gsap.fromTo(
+      `.animatedText`,
+      { opacity: 0 },
+      { opacity: 1, duration: 1, stagger: 0.2, ease: "power2.inOut" },
+    );
   }, [selectedProjectIndex]);
 
   const currentProject = myProjects[selectedProjectIndex];
@@ -107,25 +122,38 @@ const Projects = () => {
                 </div>
               ))}
             </div>
-
-            <a
-              className="flex cursor-pointer items-center gap-2 text-white-600"
-              href={currentProject.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <p>Voire en live</p>
-              <img src="/assets/arrow-up.png" alt="arrow" className="h-3 w-3" />
-            </a>
-            <a
-              className="flex cursor-pointer items-center gap-2 text-white-600"
-              href={currentProject.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <p>Voir sur GitHub</p>
-              <img src="/assets/arrow-up.png" alt="arrow" className="h-3 w-3" />
-            </a>
+            <div className="flex gap-4">
+              {currentProject.live && (
+                <a
+                  className="flex cursor-pointer items-center gap-2 text-white-600"
+                  href={currentProject.live}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <p>Voire en live</p>
+                  <img
+                    src="/assets/arrow-up.png"
+                    alt="arrow"
+                    className="h-3 w-3"
+                  />
+                </a>
+              )}
+              {currentProject.github && (
+                <a
+                  className="flex cursor-pointer items-center gap-2 text-white-600"
+                  href={currentProject.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <p>Voir sur GitHub</p>
+                  <img
+                    src="/assets/arrow-up.png"
+                    alt="arrow"
+                    className="h-3 w-3"
+                  />
+                </a>
+              )}
+            </div>
           </div>
 
           <div className="mt-7 flex items-center justify-between">

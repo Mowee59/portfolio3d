@@ -15,13 +15,12 @@ const Grid1 = () => {
       />
       <div>
         {/* Headline text introducing Aniss */}
-        <p className="grid-headtext">Bonjour, je m'apelle Aniss</p>
-        {/* Subtext providing more details about Aniss's expertise */}
+        <p className="grid-headtext">Bonjour, je m&apos;apelle Aniss</p>
+        {/* Subtext providing more details about my expertise */}
         <p className="grid-subtext">
-          Je suis un développeur passionné par la conception et le développement
-          d&apos;applications. Mon expertise réside dans l&apos;utilisation de
-          la technologie pour transformer des concepts novateurs en produits
-          tangibles et performants.
+          Je suis un concepteur développeur passionné. Mon appétence pour le
+          domaine et ma curiosité font de moi un développeur polyvalent et
+          efficace.
         </p>
       </div>
     </>
