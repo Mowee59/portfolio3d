@@ -11,7 +11,12 @@ const NavItems = () => {
     <ul className="nav-ul">
       {navLinks.map(({ id, href, name }) => (
         <li key={id} className="nav-li">
-          <Link href={href}>{name}</Link>
+          <Link
+            href={href}
+            className="after:origin-cente relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:scale-x-0 after:bg-white after:transition after:duration-300 after:content-[''] after:hover:scale-x-100"
+          >
+            {name}
+          </Link>
         </li>
       ))}
     </ul>

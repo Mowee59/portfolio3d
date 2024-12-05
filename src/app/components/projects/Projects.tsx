@@ -8,7 +8,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
-import CanvasLoader from "../CanvasLoader";
+import CanvasLoader from "../loaders/CanvasLoader";
 import { Bounds, Environment, OrbitControls } from "@react-three/drei";
 import { Center } from "@react-three/drei";
 import Computer from "./Computer";
@@ -23,7 +23,7 @@ const projectCount = myProjects.length;
 const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const containerRef = useRef(null);
-
+  const titleRef = useRef(null);
   /**
    * Handles navigation between projects.
    * @param {string} direction - The direction to navigate ("previous" or "next").
@@ -41,6 +41,26 @@ const Projects = () => {
   // GSAP animation for project items on scroll
   useGSAP(() => {
     const projectItems = gsap.utils.toArray(".project-container");
+
+    gsap.fromTo(
+      titleRef.current,
+      {
+        opacity: 0,
+        y: -50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top bottom",
+          end: "top center",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
 
     projectItems.forEach((item, index: number) => {
       gsap.fromTo(
@@ -78,8 +98,10 @@ const Projects = () => {
   const currentProject = myProjects[selectedProjectIndex];
 
   return (
-    <Bounded id="projects">
-      <p className="head-text">Ma sélection de projets</p>
+    <Bounded id="projects" ref={containerRef}>
+      <h3 className="head-text" ref={titleRef}>
+        Ma sélection de projets
+      </h3>
 
       <div
         ref={containerRef}

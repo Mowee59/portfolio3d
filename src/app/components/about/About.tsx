@@ -23,10 +23,34 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   // Reference to the container element for the grid
   const containerRef = useRef(null);
+  // Reference to the title element
+  const titleRef = useRef(null);
+
   // Use GSAP for animations on grid items
   useGSAP(() => {
     // Select all elements with the class "grid-container"
     const gridItems = gsap.utils.toArray(".grid-container");
+
+    // Animate the title to fade in
+    gsap.fromTo(
+      titleRef.current,
+      {
+        opacity: 0,
+        y: -50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top bottom",
+          end: "top center",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
 
     // Apply animation to each grid item
     gridItems.forEach(
@@ -58,7 +82,9 @@ const About = () => {
 
   return (
     <Bounded className="my-20" id="about">
-      <p className="head-text mb-12">Á propos de moi</p>
+      <h3 className="head-text mb-12" ref={titleRef}>
+        Á propos de moi
+      </h3>
       <div
         ref={containerRef}
         className="grid h-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-6"

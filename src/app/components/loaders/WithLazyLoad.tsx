@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, Suspense } from "react";
 import { useInView } from "react-intersection-observer";
-import LoadingFallback from "./LoadingFallback";
+import LoadingFallback from "../hoc/LoadingFallback";
 
 interface WithLazyLoadOptions {
   fallback?: React.ReactNode;

@@ -2,7 +2,7 @@
 
 import Hero from "./components/hero/Hero";
 
-import { withLazyLoad } from "./components/hoc/WithLazyLoad";
+import { withLazyLoad } from "./components/loaders/WithLazyLoad";
 import React from "react";
 import LoadingFallback from "./components/hoc/LoadingFallback";
 const LazyAbout = withLazyLoad(

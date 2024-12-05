@@ -1,18 +1,48 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import Bounded from "../hoc/Bounded";
 import { Canvas } from "@react-three/fiber";
 import { workExperiences } from "@/constants";
 import { OrbitControls, Environment } from "@react-three/drei";
 import Avatar from "./Avatar";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const WhyMe = () => {
   const [animationName, setAnimationName] = useState("idle");
+  const titleRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      titleRef.current,
+      {
+        opacity: 0,
+        y: -50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top bottom",
+          end: "top center",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+  });
 
   return (
     <Bounded id="whyme">
       <div className="w-full text-white-600">
-        <h3 className="head-text">Pourquoi moi ?</h3>
+        <h3 className="head-text" ref={titleRef}>
+          Pourquoi moi ?
+        </h3>
 
         <div className="work-container">
           <div className="work-canvas">

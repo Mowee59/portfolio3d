@@ -5,7 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Float, Environment, useGLTF } from "@react-three/drei";
 import { Suspense, useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import CanvasLoader from "../CanvasLoader";
+import CanvasLoader from "../loaders/CanvasLoader";
 import HeroCamera from "./HeroCamera";
 const Shapes = () => {
   return (
