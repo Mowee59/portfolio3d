@@ -8,13 +8,21 @@ import { useGSAP } from "@gsap/react";
 import Bounded from "../hoc/Bounded";
 import Shapes from "./Shapes";
 import { useComponentLoaded } from "@/app/hooks/useComponentLoaded";
+import { useLoading } from "@/app/context/LoadingContext";
 const Hero = () => {
   const component = useRef(null);
+  const { allComponentsLoaded } = useLoading();
+
   useComponentLoaded("Hero");
 
   useGSAP(
     () => {
-      const tl = gsap.timeline();
+      if (!allComponentsLoaded) return;
+
+      const delay = 2; // 500ms delay
+      const tl = gsap.timeline({
+        delay: delay,
+      });
 
       tl.fromTo(
         ".name-animation",
@@ -49,7 +57,7 @@ const Hero = () => {
         },
       );
     },
-    { scope: component },
+    { scope: component, dependencies: [allComponentsLoaded] },
   );
 
   /**

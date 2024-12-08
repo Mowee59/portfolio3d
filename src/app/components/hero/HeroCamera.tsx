@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { gsap } from "gsap";
-
+import { useGSAP } from "@gsap/react";
 const HeroCamera = ({
   children,
   isMobile,
@@ -26,19 +26,24 @@ const HeroCamera = ({
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  //TODO: Use gsap hook
-  useFrame(() => {
-    if (!groupRef.current) return;
+  useGSAP(
+    () => {
+      if (!groupRef.current) return;
 
-    if (!isMobile) {
-      gsap.to(groupRef.current.rotation, {
-        x: mousePosition.y / 20,
-        y: -mousePosition.x / 15,
-        duration: 3,
-        ease: "power4.out",
-      });
-    }
-  });
+      if (!isMobile) {
+        gsap.to(groupRef.current.rotation, {
+          x: mousePosition.y / 20,
+          y: -mousePosition.x / 15,
+          duration: 3,
+          ease: "power4.out",
+        });
+      }
+    },
+    {
+      dependencies: [mousePosition, isMobile],
+      scope: groupRef,
+    },
+  );
 
   return <group ref={groupRef}>{children}</group>;
 };

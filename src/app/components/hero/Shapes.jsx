@@ -3,10 +3,13 @@
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Float, Environment, useGLTF } from "@react-three/drei";
-import { Suspense, useRef, useEffect } from "react";
+import { Suspense, useRef } from "react";
 import { gsap } from "gsap";
 import CanvasLoader from "../loaders/CanvasLoader";
 import HeroCamera from "./HeroCamera";
+import { useGSAP } from "@gsap/react";
+import { useLoading } from "@/app/context/LoadingContext";
+
 const Shapes = () => {
   return (
     <Canvas
@@ -93,18 +96,26 @@ const Geometries = () => {
 
 const Geometry = ({ r, position, geometry, materials, scale }) => {
   const meshRef = useRef();
-
+  const { allComponentsLoaded } = useLoading();
   const startingMaterial = getRandomMaterial();
 
-  useEffect(() => {
-    if (meshRef.current) {
-      gsap.from(meshRef.current.position, {
-        y: 10, // Start from above
+  useGSAP(
+    () => {
+      if (!meshRef.current || !allComponentsLoaded) return;
+
+      const delay = 2;
+
+      const tl = gsap.timeline({
+        delay: delay,
+      });
+      tl.from(meshRef.current.position, {
+        y: 20, // Start from above
         duration: 1.5,
         ease: "power3.out",
       });
-    }
-  }, []);
+    },
+    { scope: meshRef, dependencies: [allComponentsLoaded] },
+  );
 
   function getRandomMaterial() {
     return gsap.utils.random(materials);
