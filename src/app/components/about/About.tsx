@@ -12,6 +12,7 @@ import Globe from "./MyGlobe";
 import Grid1 from "./Grid1";
 import Grid2 from "./Grid2";
 import Grid3 from "./Grid3";
+import { useComponentLoaded } from "@/app/hooks/useComponentLoaded";
 
 // Register the ScrollTrigger plugin with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -25,6 +26,8 @@ const About = () => {
   const containerRef = useRef(null);
   // Reference to the title element
   const titleRef = useRef(null);
+
+  useComponentLoaded("About");
 
   // Use GSAP for animations on grid items
   useGSAP(() => {

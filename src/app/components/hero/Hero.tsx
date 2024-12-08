@@ -7,9 +7,10 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Bounded from "../hoc/Bounded";
 import Shapes from "./Shapes";
-
+import { useComponentLoaded } from "@/app/hooks/useComponentLoaded";
 const Hero = () => {
   const component = useRef(null);
+  useComponentLoaded("Hero");
 
   useGSAP(
     () => {

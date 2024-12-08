@@ -12,6 +12,7 @@ import CanvasLoader from "../loaders/CanvasLoader";
 import { Bounds, Environment, OrbitControls } from "@react-three/drei";
 import { Center } from "@react-three/drei";
 import Computer from "./Computer";
+import { useComponentLoaded } from "@/app/hooks/useComponentLoaded";
 gsap.registerPlugin(ScrollTrigger);
 
 const projectCount = myProjects.length;
@@ -24,6 +25,7 @@ const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const containerRef = useRef(null);
   const titleRef = useRef(null);
+  useComponentLoaded("Projects");
   /**
    * Handles navigation between projects.
    * @param {string} direction - The direction to navigate ("previous" or "next").

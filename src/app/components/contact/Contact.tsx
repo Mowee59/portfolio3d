@@ -5,10 +5,11 @@ import Bounded from "../hoc/Bounded";
 import emailjs from "@emailjs/browser";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useComponentLoaded } from "@/app/hooks/useComponentLoaded";
 
 const Contact = () => {
   const containerRef = useRef(null);
-
+  useComponentLoaded("Contact");
   const [form, setForm] = useState({
     name: "",
     email: "",

@@ -8,13 +8,13 @@ import Avatar from "./Avatar";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { useComponentLoaded } from "@/app/hooks/useComponentLoaded";
 gsap.registerPlugin(ScrollTrigger);
 
 const WhyMe = () => {
   const [animationName, setAnimationName] = useState("idle");
   const titleRef = useRef(null);
-
+  useComponentLoaded("WhyMe");
   useGSAP(() => {
     gsap.fromTo(
       titleRef.current,
