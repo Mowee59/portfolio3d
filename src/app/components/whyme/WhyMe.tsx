@@ -35,6 +35,30 @@ const WhyMe = () => {
         },
       },
     );
+    const workItems = gsap.utils.toArray(".work-canvas, .work-content");
+
+    workItems.forEach((item, index) => {
+      gsap.fromTo(
+        item as HTMLElement,
+        {
+          opacity: 0,
+          y: 100,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item as HTMLElement,
+            start: "top bottom-=100",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
+          },
+          delay: index * 0.5,
+        },
+      );
+    });
   });
 
   return (

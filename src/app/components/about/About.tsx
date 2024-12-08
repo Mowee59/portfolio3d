@@ -66,6 +66,7 @@ const About = () => {
             y: 0,
             duration: 1.2,
             ease: "power3.out",
+
             scrollTrigger: {
               trigger: item as HTMLElement,
               start: "top bottom",

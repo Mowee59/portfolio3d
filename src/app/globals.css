@@ -4,11 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @layer utilities {
@@ -21,7 +19,7 @@
   }
 
   .nav-ul {
-    @apply relative z-20 flex flex-col items-center gap-4 sm:flex-row md:gap-6;
+    @apply relative z-20 flex flex-col items-center gap-4 md:gap-6 lg:flex-row;
   }
 
   .nav-li {
@@ -33,7 +31,7 @@
   }
 
   .nav-sidebar {
-    @apply absolute left-0 right-0 z-20 mx-auto block overflow-hidden bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out sm:hidden;
+    @apply absolute left-0 right-0 z-20 mx-auto block overflow-hidden bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out lg:hidden;
   }
 
   .text-gray_gradient {

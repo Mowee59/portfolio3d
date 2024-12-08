@@ -1,9 +1,14 @@
 "use client";
 
-import React, {  useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Bounded from "../hoc/Bounded";
 import emailjs from "@emailjs/browser";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 const Contact = () => {
+  const containerRef = useRef(null);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -46,8 +51,30 @@ const Contact = () => {
     }
   };
 
+  useGSAP(() => {
+    gsap.fromTo(
+      containerRef.current,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top bottom-=100",
+          end: "bottom center",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+  });
+
   return (
-    <Bounded id="contact">
+    <Bounded id="contact" ref={containerRef}>
       <div className="relative flex min-h-screen flex-col items-center justify-center">
         <img
           src="/assets/terminal.png"

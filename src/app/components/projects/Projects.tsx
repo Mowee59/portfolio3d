@@ -46,7 +46,7 @@ const Projects = () => {
       titleRef.current,
       {
         opacity: 0,
-        y: -50,
+        y: -100,
       },
       {
         opacity: 1,
@@ -105,7 +105,7 @@ const Projects = () => {
 
       <div
         ref={containerRef}
-        className="mt-12 grid w-full grid-cols-1 gap-5 lg:grid-cols-2"
+        className="mt-12 grid w-full grid-cols-1 gap-5 lg:grid-cols-2 project-section"
       >
         <div className="project-container relative flex flex-col gap-5 px-5 py-10 shadow-2xl shadow-black-200 sm:p-10">
           <div className="absolute right-0 top-0">
