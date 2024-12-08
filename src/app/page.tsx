@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import { Loader } from "@react-three/drei";
 import { LoadingProvider } from "./context/LoadingContext";
 import { useLoading } from "./context/LoadingContext";
+import Preloader from "./components/loaders/Preloader";
 
 const expectedComponents = ["About", "Hero", "Projects", "WhyMe", "Contact"];
 
@@ -25,11 +26,7 @@ const Content: React.FC = () => {
 
   return (
     <main>
-      {!showContent && (
-        <div className="absolute left-0 top-0 z-50 h-screen w-screen bg-black">
-          <h1 className="text-center text-2xl text-white">Chargement</h1>
-        </div>
-      )}
+      {!showContent && <Preloader />}
       <div
         className={`transition-opacity duration-500 ${showContent ? "opacity-100" : "opacity-0"}`}
       >
