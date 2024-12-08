@@ -6,7 +6,6 @@ import Projects from "./components/projects/Projects";
 import WhyMe from "./components/whyme/WhyMe";
 import Contact from "./components/contact/Contact";
 import React, { useEffect, useState } from "react";
-import { Loader } from "@react-three/drei";
 import { LoadingProvider } from "./context/LoadingContext";
 import { useLoading } from "./context/LoadingContext";
 import Preloader from "./components/loaders/Preloader";
