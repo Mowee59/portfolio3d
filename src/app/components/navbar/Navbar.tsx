@@ -168,17 +168,17 @@ const Navbar = () => {
           </div>
           <div className="menu-container right hidden flex-col gap-6 md:flex">
             <div className="information text-xl">
-              <p className="title text-4xl text-[#aa977e]">Qui suis-je ?</p>
+              <p className="title text-4xl text-[#64748b]">Qui suis-je ?</p>
               <p className="description">
                 Aniss Mahfoudi <br /> Développeur Full Stack
               </p>
             </div>
             <div className="information">
-              <p className="title text-4xl text-[#aa977e]">Contact</p>
+              <p className="title text-4xl text-[#64748b]">Contact</p>
               <p className="description text-xl">contact@aniss.dev</p>
             </div>
             <div className="information">
-              <p className="title text-4xl text-[#aa977e]">Suivez-moi</p>
+              <p className="title text-4xl text-[#64748b]">Suivez-moi</p>
               <div className="flex gap-4">
                 <a
                   href="https://www.linkedin.com/in/aniss-mahfoudi-007931165"

@@ -74,21 +74,16 @@ const Geometries = () => {
   ];
 
   const materials = [
-    new THREE.MeshNormalMaterial(),
+    // new THREE.MeshNormalMaterial(),
+    // new THREE.MeshStandardMaterial({
+    //   color: 0xffffff,
+    //   roughness: 0.1,
+    //   metalness: 0.4,
+    // }),
     new THREE.MeshStandardMaterial({
-      color: 0xaa977e,
+      color: 0xe2e2e2,
       roughness: 0.1,
-      metalness: 0.4,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: 0xaa977e,
-      roughness: 0.1,
-      metalness: 0.8,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: 0xe5e5e5,
-      roughness: 0.1,
-      metalness: 0.4,
+      metalness: 0.6,
     }),
   ];
 

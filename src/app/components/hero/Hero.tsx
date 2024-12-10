@@ -32,7 +32,7 @@ const Hero = () => {
           opacity: 1,
           rotate: 0,
           duration: 1,
-          ease: "elastic.out(1, 0.3)",
+          ease: "power4.out",
           transformOrigin: "left top",
           stagger: {
             each: 0.1,
@@ -102,7 +102,7 @@ const Hero = () => {
             <span className="-mt-[.2em] block text-[clamp(4rem,12vmin,20rem)] font-bold text-slate-500">
               {renderLetters(heroText.nom, "nom")}
             </span>
-            <span className="description block bg-gradient-to-tr from-[#aa977e] via-[#f0d4b1] to-[#aa977e] bg-clip-text text-xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl">
+            <span className="description block bg-gradient-to-tr bg-clip-text text-xl font-bold uppercase tracking-[.2em] text-transparent text-white-600 opacity-0 md:text-4xl">
               {heroText.description}
             </span>
           </h1>
