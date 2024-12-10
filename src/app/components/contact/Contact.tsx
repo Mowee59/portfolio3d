@@ -80,7 +80,7 @@ const Contact = () => {
         <img
           src="/assets/terminal.png"
           alt="terminal background"
-          className="absolute inset-0 hidden h-full w-full sm:block min-h-[900px]"
+          className="absolute inset-0 hidden h-full min-h-[900px] w-full sm:block"
         />
         <div className="contact-container">
           <h3 className="head-text">Contactez-moi</h3>
@@ -129,7 +129,7 @@ const Contact = () => {
                 required
                 rows={5}
                 className="field-input"
-                placeholder="Faites moi part de votre message..."
+                placeholder="Ecrivez votre message..."
               />
             </label>
 
