@@ -15,12 +15,12 @@ const Grid1 = () => {
       />
       <div>
         {/* Headline text introducing Aniss */}
-        <p className="grid-headtext">Bonjour, je m&apos;apelle Aniss</p>
+        <p className="grid-headtext">Bonjour, je m&apos;appelle Aniss</p>
         {/* Subtext providing more details about my expertise */}
         <p className="grid-subtext">
-          Je suis un concepteur développeur passionné. Mon appétence pour le
-          domaine et ma curiosité font de moi un développeur polyvalent et
-          efficace.
+          Je suis un développeur passionné avec une curiosité insatiable pour la
+          technologie. Ma rigueur et ma polyvalence me permettent de
+          m&apos;adapter rapidement aux nouveaux défis.
         </p>
       </div>
     </>

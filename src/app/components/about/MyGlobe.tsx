@@ -1,7 +1,7 @@
 "use client";
 
-import { GlobeMethods } from "react-globe.gl";
-import { useRef } from "react";
+// import { GlobeMethods } from "react-globe.gl";
+// import { useRef } from "react";
 import dynamic from "next/dynamic";
 const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 
@@ -11,18 +11,18 @@ const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
  */
 const MyGlobe: React.FC = () => {
   // Reference to access globe methods for controlling the globe's point of view
-  const globeMethods = useRef<GlobeMethods | undefined>(undefined);
+  // const globeMethods = useRef<GlobeMethods | undefined>(undefined);
 
   return (
     <Globe
-      ref={globeMethods}
-      // Set the initial point of view to focus on Lille, France
-      onGlobeReady={() =>
-        globeMethods.current?.pointOfView(
-          { lng: 3.066667, lat: 50.633333, altitude: 2.5 },
-          500, // Animation duration in milliseconds
-        )
-      }
+      // ref={globeMethods}
+      // // Set the initial point of view to focus on Lille, France
+      // onGlobeReady={() =>
+      //   globeMethods.current?.pointOfView(
+      //     { lng: 3.066667, lat: 50.633333, altitude: 2.5 },
+      //     500, // Animation duration in milliseconds
+      //   )
+      // }
       height={326} // Height of the globe component
       width={326} // Width of the globe component
       backgroundColor="rgba(0,0,0,0)" // Transparent background

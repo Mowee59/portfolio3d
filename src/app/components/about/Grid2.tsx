@@ -24,10 +24,10 @@ const Grid2 = () => {
         {/* Subtext providing more details about the technical stack's versatility */}
         <p className="grid-subtext">
           Ma stack technique est variée et couvre plusieurs domaines clés,
-          allant de la conception à la mise en œuvre. Cette polyvalence me
-          permet de m&apos;adapter à divers projets et défis techniques.
-          L&apos;apprentissage de nouveaux languages ou frameworks n&apos;est
-          pas un frein pour moi.
+          incluant backend (NestJS, Symfony et je me forme à ASP .NET Core),
+          frontend (React, Angular) et déploiement (Docker, GIthub Actions).
+          L&apos;apprentissage de nouveaux langages ou frameworks n&apos;est pas
+          un frein pour moi.
         </p>
       </div>
     </>

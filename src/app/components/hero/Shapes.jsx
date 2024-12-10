@@ -15,7 +15,7 @@ const Shapes = () => {
     <Canvas
       className="h-full w-full"
       shadows
-      gl={{ antialias: true }}
+      gl={{ antialias: false }}
       dpr={[1, 1.5]}
       camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
     >
@@ -51,34 +51,44 @@ const Geometries = () => {
       geometry: nodes.Curve.geometry,
       scale: 5.5,
     },
-    {
-      position: [1, -0.75, 4],
-      r: 0.3,
-      geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16),
-    },
-    {
-      position: [-1.4, 2, -4],
-      r: 0.6,
-      geometry: new THREE.DodecahedronGeometry(1.5),
-    },
-    {
-      position: [-0.8, -0.75, 5],
-      r: 0.5,
-      geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32),
-    },
-    {
-      position: [1.6, 1.6, -4],
-      r: 0.7,
-      geometry: new THREE.OctahedronGeometry(1.5),
-    },
+    // {
+    //   position: [1, -0.75, 4],
+    //   r: 0.3,
+    //   geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16),
+    // },
+    // {
+    //   position: [-1.4, 2, -4],
+    //   r: 0.6,
+    //   geometry: new THREE.DodecahedronGeometry(1.5),
+    // },
+    // {
+    //   position: [-0.8, -0.75, 5],
+    //   r: 0.5,
+    //   geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32),
+    // },
+    // {
+    //   position: [1.6, 1.6, -4],
+    //   r: 0.7,
+    //   geometry: new THREE.OctahedronGeometry(1.5),
+    // },
   ];
 
   const materials = [
     new THREE.MeshNormalMaterial(),
     new THREE.MeshStandardMaterial({
-      color: 0x2980b9,
+      color: 0xaa977e,
       roughness: 0.1,
-      metalness: 0.5,
+      metalness: 0.4,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: 0xaa977e,
+      roughness: 0.1,
+      metalness: 0.8,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: 0xe5e5e5,
+      roughness: 0.1,
+      metalness: 0.4,
     }),
   ];
 
@@ -103,7 +113,7 @@ const Geometry = ({ r, position, geometry, materials, scale }) => {
     () => {
       if (!meshRef.current || !allComponentsLoaded) return;
 
-      const delay = 2;
+      const delay = 4;
 
       const tl = gsap.timeline({
         delay: delay,
@@ -123,41 +133,40 @@ const Geometry = ({ r, position, geometry, materials, scale }) => {
 
   function handleClick(e) {
     const mesh = e.object;
-    console.log(mesh);
     gsap.to(mesh.rotation, {
-      y: `+=${-Math.PI / 2}`,
+      z: `+=${-2 * Math.PI}`,
       duration: 1.3,
-      ease: "elastic.out(1, 0.3)",
+      ease: "power3.out",
     });
 
     mesh.material = getRandomMaterial();
   }
 
-  // const handlePointerOver = () => {
-  //   document.body.style.cursor = "pointer";
-  //   if (meshRef.current) {
-  //     gsap.to(meshRef.current.scale, {
-  //       x: 1.2,
-  //       y: 1.2,
-  //       z: 1.2,
-  //       duration: 0.5,
-  //       ease: "bounce.out",
-  //     });
-  //   }
-  // };
+  const handlePointerOver = () => {
+    document.body.style.cursor = "pointer";
+    if (meshRef.current) {
+      gsap.to(meshRef.current.scale, {
+        x: 1.2,
+        y: 1.2,
+        z: 1.2,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    }
+  };
 
-  // const handlePointerOut = () => {
-  //   document.body.style.cursor = "default";
-  //   if (meshRef.current) {
-  //     gsap.to(meshRef.current.scale, {
-  //       x: 1,
-  //       y: 1,
-  //       z: 1,
-  //       duration: 0.5,
-  //       ease: "bounce.out",
-  //     });
-  //   }
-  // };
+  const handlePointerOut = () => {
+    document.body.style.cursor = "default";
+    if (meshRef.current) {
+      gsap.to(meshRef.current.scale, {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 0.5,
+        ease: "bounce.out",
+      });
+    }
+  };
 
   return (
     <group position={position} ref={meshRef}>
@@ -167,8 +176,8 @@ const Geometry = ({ r, position, geometry, materials, scale }) => {
           material={startingMaterial}
           rotation={[Math.PI / 2, 0, Math.PI]}
           onClick={handleClick}
-          // onPointerOver={handlePointerOver}
-          // onPointerOut={handlePointerOut}
+          onPointerOver={handlePointerOver}
+          onPointerOut={handlePointerOut}
           visible={true}
           scale={scale}
         />

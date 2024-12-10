@@ -18,7 +18,7 @@ const Content: React.FC = () => {
 
   useEffect(() => {
     if (allComponentsLoaded) {
-      const timer = setTimeout(() => setShowContent(true), 1000); // Delay to ensure smooth transition
+      const timer = setTimeout(() => setShowContent(true), 4000); // Delay to ensure smooth transition
       return () => clearTimeout(timer);
     }
   }, [allComponentsLoaded]);

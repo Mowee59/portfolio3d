@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useComponentLoaded } from "@/app/hooks/useComponentLoaded";
+import CanvasLoader from "../loaders/CanvasLoader";
 gsap.registerPlugin(ScrollTrigger);
 
 const WhyMe = () => {
@@ -69,13 +70,13 @@ const WhyMe = () => {
         </h3>
 
         <div className="work-container">
-          <div className="work-canvas">
+          <div className="work-canvas px-5">
             <Canvas>
               {/* <ambientLight intensity={7} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
               <directionalLight position={[10, 10, 10]} />*/}
               <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
-              <Suspense fallback={null}>
+              <Suspense fallback={<CanvasLoader />}>
                 <Avatar
                   position-y={-3}
                   scale={3}

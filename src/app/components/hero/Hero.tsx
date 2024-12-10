@@ -19,7 +19,7 @@ const Hero = () => {
     () => {
       if (!allComponentsLoaded) return;
 
-      const delay = 2; // 500ms delay
+      const delay = 4; // 500ms delay
       const tl = gsap.timeline({
         delay: delay,
       });
@@ -83,25 +83,26 @@ const Hero = () => {
 
   return (
     //TODO: fix the height of the hero in mobile resolution
+    //TODO: Remove the overflow-hidden on the hero and find what overflows
     <Bounded
       ref={component}
-      className="flex max-h-fit min-h-screen items-center"
+      className="flex max-h-fit min-h-screen items-center overflow-hidden"
       id="#home"
     >
-      <div className="grid min-h-[70vh] grid-cols-1 items-center md:grid-cols-2">
+      <div className="grid min-h-svh grid-cols-1 items-center pb-3 md:grid-cols-2">
         <Shapes />
         <div className="col-start-1 md:row-start-1">
           <h1
-            className="mb-8 text-[clamp(6rem,12vmin,20rem)] font-extrabold leading-none tracking-tighter"
+            className="mb-8 text-[clamp(4rem,12vmin,20rem)] font-extrabold leading-none tracking-tighter"
             aria-label={`${heroText.prenom} ${heroText.nom} ${heroText.description}`}
           >
             <span className="block text-slate-300">
               {renderLetters(heroText.prenom, "prenom")}
             </span>
-            <span className="-mt-[.2em] block text-[clamp(6rem,12vmin,20rem)] font-bold text-slate-500">
+            <span className="-mt-[.2em] block text-[clamp(4rem,12vmin,20rem)] font-bold text-slate-500">
               {renderLetters(heroText.nom, "nom")}
             </span>
-            <span className="description block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl">
+            <span className="description block bg-gradient-to-tr from-[#aa977e] via-[#f0d4b1] to-[#aa977e] bg-clip-text text-xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl">
               {heroText.description}
             </span>
           </h1>

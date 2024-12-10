@@ -1,4 +1,3 @@
-
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
@@ -62,7 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`antialiased`}>
+      <body className={`max-w-screen antialiased`} suppressHydrationWarning>
         <Navbar />
         {children}
         <Footer />

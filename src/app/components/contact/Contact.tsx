@@ -76,11 +76,11 @@ const Contact = () => {
 
   return (
     <Bounded id="contact" ref={containerRef}>
-      <div className="relative flex min-h-screen flex-col items-center justify-center">
+      <div className="relative flex h-fit flex-col items-center justify-center p-12">
         <img
           src="/assets/terminal.png"
           alt="terminal background"
-          className="absolute inset-0 hidden min-h-screen w-full sm:block"
+          className="absolute inset-0 hidden h-full w-full sm:block min-h-[900px]"
         />
         <div className="contact-container">
           <h3 className="head-text">Contactez-moi</h3>

@@ -1,41 +1,24 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export function Preloader() {
   const preloaderRef = useRef<HTMLDivElement>(null);
   const loaderRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    const tl = gsap.timeline();
+  useGSAP(
+    () => {
+      const tl = gsap.timeline();
 
-    // Animate the loader
-    tl.to(loaderRef.current, {
-      duration: 1.5,
-      rotate: 360,
-      repeat: -1,
-      ease: "linear",
-    });
-
-    // Fade in the text
-    tl.to(
-      textRef.current,
-      {
-        duration: 0.5,
-        opacity: 1,
-        y: 0,
-        delay: 0.5,
-      },
-      0,
-    );
-
-    // Simulate loading time (you can replace this with your actual loading logic)
-    setTimeout(() => {
-      gsap.to(preloaderRef.current, {
-        duration: 0.5,
-        opacity: 0,
+      // Animate the loader
+      tl.to(loaderRef.current, {
+        duration: 1.5,
+        rotate: 360,
+        repeat: -1,
+        ease: "linear",
         onComplete: () => {
           if (preloaderRef.current) {
             preloaderRef.current.style.display = "none";
@@ -43,12 +26,21 @@ export function Preloader() {
           document.body.style.overflow = "unset";
         },
       });
-    }, 3000); // 3 seconds for demonstration
 
-    return () => {
-      tl.kill();
-    };
-  }, []);
+      // Fade in the text
+      tl.to(
+        textRef.current,
+        {
+          duration: 0.5,
+          opacity: 1,
+          y: 0,
+          delay: 0.5,
+        },
+        0,
+      );
+    },
+    { scope: preloaderRef },
+  );
 
   return (
     <div

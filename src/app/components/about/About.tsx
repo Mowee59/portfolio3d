@@ -87,7 +87,7 @@ const About = () => {
   return (
     <Bounded className="my-20" id="about">
       <h3 className="head-text mb-12" ref={titleRef}>
-        Á propos de moi
+        A propos de moi
       </h3>
       <div
         ref={containerRef}
@@ -114,14 +114,15 @@ const About = () => {
             <div>
               <p className="grid-headtext">Je m&apos;adapte géographiquement</p>
               <p className="grid-subtext">
-                Je suis basé à Lille, mais je suis ouvert à toutes les
-                opportunités de déplacement.
+                Je suis basé à Lille, mais je reste ouvert à des propositions de
+                télétravail ou de déplacements ponctuels.
               </p>
 
               <Button
                 label="Me contacter"
                 withCircle
                 containerClass="w-full mt-10"
+                href="#contact"
               />
             </div>
           </div>

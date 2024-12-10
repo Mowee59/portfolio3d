@@ -107,7 +107,7 @@ const Projects = () => {
 
       <div
         ref={containerRef}
-        className="mt-12 grid w-full grid-cols-1 gap-5 lg:grid-cols-2 project-section"
+        className="project-section mt-12 grid w-full grid-cols-1 gap-5 lg:grid-cols-2"
       >
         <div className="project-container relative flex flex-col gap-5 px-5 py-10 shadow-2xl shadow-black-200 sm:p-10">
           <div className="absolute right-0 top-0">
@@ -134,46 +134,52 @@ const Projects = () => {
               {currentProject.title}
             </p>
 
-            <p className="animatedText">{currentProject.desc}</p>
-            <p className="animatedText">{currentProject.subdesc}</p>
+            <p
+              className="animatedText"
+              dangerouslySetInnerHTML={{ __html: currentProject.desc }}
+            />
+            <p
+              className="animatedText"
+              dangerouslySetInnerHTML={{ __html: currentProject.subdesc }}
+            />
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-5">
+          <div className="flex flex-col items-center justify-between gap-5">
             <div className="flex items-center gap-3">
               {currentProject.tags.map((tag, index) => (
                 <div key={index} className="tech-logo">
-                  <img src={tag.path} alt={tag.name} />
+                  <img src={tag.path} alt={tag.name} title={tag.name} />
                 </div>
               ))}
             </div>
-            <div className="flex gap-4">
-              {currentProject.live && (
+            <div className="flex flex-wrap gap-4">
+              {currentProject.lien1 && (
                 <a
-                  className="flex cursor-pointer items-center gap-2 text-white-600"
-                  href={currentProject.live}
+                  className="group flex cursor-pointer items-center gap-2 text-white-600 transition-all duration-300 hover:text-white"
+                  href={currentProject.lien1}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <p>Voire en live</p>
+                  <p>{currentProject.desc1}</p>
                   <img
                     src="/assets/arrow-up.png"
                     alt="arrow"
-                    className="h-3 w-3"
+                    className="h-3 w-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
                 </a>
               )}
-              {currentProject.github && (
+              {currentProject.lien2 && (
                 <a
-                  className="flex cursor-pointer items-center gap-2 text-white-600"
-                  href={currentProject.github}
+                  className="group flex cursor-pointer items-center gap-2 text-white-600 transition-all duration-300 hover:text-white"
+                  href={currentProject.lien2}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <p>Voir sur GitHub</p>
+                  <p>{currentProject.desc2}</p>
                   <img
                     src="/assets/arrow-up.png"
                     alt="arrow"
-                    className="h-3 w-3"
+                    className="h-3 w-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
                 </a>
               )}

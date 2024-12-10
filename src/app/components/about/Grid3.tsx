@@ -19,13 +19,12 @@ const Grid3 = () => {
         <p className="grid-headtext">Ma passion pour le développement</p>
         {/* Subtext elaborating on the developer's dedication and approach to development */}
         <p className="grid-subtext">
-          Le développement est bien plus qu&apos;un métier pour moi, c&apos;est
-          une véritable passion. J&apos;aime transformer des idées en
-          applications fonctionnelles et innovantes. Chaque projet est une
-          opportunité d&apos;apprendre et de repousser mes limites. Avec le
-          temps, j&apos;ai pu m&apos;initier à de nombreux langages, qu&apos;ils
-          soient bas niveau ou haut niveau. Je suis également sensible aux
-          questions d&apos;architecture et de design pattern.
+          Le développement n&apos;est pas seulement un métier pour moi,
+          c&apos;est une véritable passion. J&apos;adore transformer des idées
+          en applications fonctionnelles et robustes. Chaque projet est une
+          occasion d&apos;apprendre et de m&apos;améliorer, c&apos;est pour cela
+          que je suis attentif aux bonnes pratiques d&apos;architecture et de
+          développement.
         </p>
       </div>
     </>
